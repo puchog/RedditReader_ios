@@ -22,6 +22,19 @@ class RRMainVM: NSObject {
     }
   }
   
+  func loadMore(){
+    guard !articles.isEmpty else {
+      refreshData()
+      return
+    }
+    let after = articles.last?.name ?? ""
+    network.retrieveArticles(after:after){ (articles, error) in
+      if let art = articles {
+        self.articles += art
+      }
+    }
+  }
+  
   func titleForRow(at indexPath:IndexPath) -> String {
     return articles[indexPath.row].title ?? ""
   }

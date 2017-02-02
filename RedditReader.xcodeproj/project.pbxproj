@@ -36,6 +36,9 @@
 		E63652521E43CA280027EFCC /* NSDate+RRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652511E43CA280027EFCC /* NSDate+RRAdditions.swift */; };
 		E63652531E43CA280027EFCC /* NSDate+RRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652511E43CA280027EFCC /* NSDate+RRAdditions.swift */; };
 		E63652541E43CA280027EFCC /* NSDate+RRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652511E43CA280027EFCC /* NSDate+RRAdditions.swift */; };
+		E63652561E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652551E43E17C0027EFCC /* RRLoadingTVC.swift */; };
+		E63652571E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652551E43E17C0027EFCC /* RRLoadingTVC.swift */; };
+		E63652581E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652551E43E17C0027EFCC /* RRLoadingTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,7 @@
 		E63652481E43A6180027EFCC /* RRArticleTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRArticleTVC.swift; sourceTree = "<group>"; };
 		E636524D1E43C6320027EFCC /* UIImageview+RRAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageview+RRAdditions.swift"; sourceTree = "<group>"; };
 		E63652511E43CA280027EFCC /* NSDate+RRAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RRAdditions.swift"; sourceTree = "<group>"; };
+		E63652551E43E17C0027EFCC /* RRLoadingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRLoadingTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				E63652481E43A6180027EFCC /* RRArticleTVC.swift */,
+				E63652551E43E17C0027EFCC /* RRLoadingTVC.swift */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63652521E43CA280027EFCC /* NSDate+RRAdditions.swift in Sources */,
+				E63652561E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */,
 				E636523C1E43752B0027EFCC /* RRMainVM.swift in Sources */,
 				E63652401E43753F0027EFCC /* RRMainVC.swift in Sources */,
 				E63652441E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */,
@@ -351,6 +357,7 @@
 			files = (
 				E63652361E4372190027EFCC /* AppDelegate.swift in Sources */,
 				E63652311E4371820027EFCC /* RRArticle.swift in Sources */,
+				E63652571E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */,
 				E636523D1E43752B0027EFCC /* RRMainVM.swift in Sources */,
 				E63652411E43753F0027EFCC /* RRMainVC.swift in Sources */,
 				E636524A1E43A6180027EFCC /* RRArticleTVC.swift in Sources */,
@@ -367,6 +374,7 @@
 			files = (
 				E63652371E4372190027EFCC /* AppDelegate.swift in Sources */,
 				E63652321E4371820027EFCC /* RRArticle.swift in Sources */,
+				E63652581E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */,
 				E636523E1E43752B0027EFCC /* RRMainVM.swift in Sources */,
 				E63652421E43753F0027EFCC /* RRMainVC.swift in Sources */,
 				E636524B1E43A6180027EFCC /* RRArticleTVC.swift in Sources */,

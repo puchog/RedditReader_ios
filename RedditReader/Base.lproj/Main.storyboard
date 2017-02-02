@@ -88,6 +88,26 @@
                                             <outlet property="titleLbl" destination="Pfu-Ru-WJy" id="JF4-4t-qzh"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="vqg-L7-WVa" customClass="RRLoadingTVC" customModule="RedditReader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128" width="343" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vqg-L7-WVa" id="Y3X-Lm-6ll">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gg4-fM-hfs">
+                                                    <rect key="frame" x="161" y="39" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gg4-fM-hfs" firstAttribute="centerX" secondItem="Y3X-Lm-6ll" secondAttribute="centerX" id="A4k-pO-Yjk"/>
+                                                <constraint firstItem="gg4-fM-hfs" firstAttribute="centerY" secondItem="Y3X-Lm-6ll" secondAttribute="centerY" id="s1U-By-PC0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="gg4-fM-hfs" id="TxT-JH-Q2q"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="fQ8-MD-C10"/>

@@ -12,12 +12,14 @@ class RRMainVC: UIViewController {
   let viewModel:RRMainVM = RRMainVM()
   
   @IBOutlet weak var tableView: UITableView!
+  var refreshControl: UIRefreshControl!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-   
-    viewModel.refreshData()
+    
     setupViews()
     setupObservers()
+    refreshData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -28,22 +30,34 @@ class RRMainVC: UIViewController {
   deinit {
     removeObserver(self, forKeyPath: #keyPath(viewModel.articles))
   }
- 
   
   private func setupViews(){
-    
+    refreshControl = UIRefreshControl()
+    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    refreshControl.addTarget(self, action: #selector(refreshData), for: UIControlEvents.valueChanged)
+    tableView.addSubview(refreshControl) // not required when using UITableViewController
   }
   
-  private func setupObservers(){    
+  private func setupObservers(){
     addObserver(self, forKeyPath: #keyPath(viewModel.articles), options: [.old, .new], context: nil)
   }
+  
+  func refreshData() {
+    viewModel.refreshData()
+  }
+  
+  
   
   // MARK: - Key-Value Observing
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     if keyPath == #keyPath(viewModel.articles) {
       // Reload TableView Data
-      tableView.reloadData()
+      refreshControl.endRefreshing()
+      DispatchQueue.main.async{
+        self.tableView.reloadData()
+      }
+//      tableView.reloadData()
     }
   }
   
@@ -61,22 +75,34 @@ class RRMainVC: UIViewController {
 
 extension RRMainVC: UITableViewDataSource, UITableViewDelegate {
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.articles.count
+    if section == 0 {
+      return viewModel.articles.count
+    } else {
+      return 1
+    }
   }
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+    
+    let loadingCellIdentifier = "LoadingCell"
     let cellIdentifier = "ArticleCell"
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? RRArticleTVC
-      ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier) as! RRArticleTVC
     
-    cell.setup(with: viewModel, indexPath: indexPath)
-    
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
+    if indexPath.section == 1{
+      let cell = tableView.dequeueReusableCell(withIdentifier: loadingCellIdentifier) as? RRLoadingTVC
+        ?? UITableViewCell(style: .subtitle, reuseIdentifier: loadingCellIdentifier) as! RRLoadingTVC
+      viewModel.loadMore()
+      cell.startAnimating()
+      return cell
+    }else{
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? RRArticleTVC
+        ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier) as! RRArticleTVC
+      
+      cell.setup(with: viewModel, indexPath: indexPath)
+      return cell
+    }
   }
 }

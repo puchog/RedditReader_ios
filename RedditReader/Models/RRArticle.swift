@@ -9,6 +9,8 @@
 import UIKit
 
 class RRArticle: NSObject {
+  
+  var name:String?
   var title:String?
   var author:String?
   var created:NSDate?
@@ -22,5 +24,6 @@ class RRArticle: NSObject {
     created =  NSDate(timeIntervalSince1970: createdDouble ?? 0.0 )
     author = json["author"] as? String
     numComments = json["num_comments"] as? Int
+    name = json["name"] as? String
   }
 }

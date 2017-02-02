@@ -10,15 +10,24 @@ import UIKit
 
 class RRNetworkCalls: NSObject {
   
+  let baseUrl = "https://www.reddit.com"
+  
   static let sharedInstance : RRNetworkCalls = {
     let instance = RRNetworkCalls()
     return instance
   }()
   
-  func retrieveArticles(completion: @escaping ([RRArticle]?, NSError?)-> Swift.Void) {
+  func retrieveArticles(before:String? = nil, after:String? = nil, count:Int = 20, completion: @escaping ([RRArticle]?, NSError?)-> Swift.Void) {
     
-    let todoEndpoint: String = "https://www.reddit.com/top.json"
-    guard let url = URL(string: todoEndpoint) else {
+    var topEndpoint: String = "\(baseUrl)/top.json?count=\(count)"
+    if let b = before {
+      topEndpoint += "&before=\(b)"
+    }
+    if let a = after {
+      topEndpoint += "&after=\(a)"
+    }
+    
+    guard let url = URL(string: topEndpoint) else {
       print("Error: cannot create URL")
       return
     }
@@ -27,8 +36,7 @@ class RRNetworkCalls: NSObject {
     let config = URLSessionConfiguration.default
     let session = URLSession(configuration: config)
     
-    let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-      
+    let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in      
       guard error == nil else {
         print(error)
         return
@@ -38,7 +46,8 @@ class RRNetworkCalls: NSObject {
         print("Error: did not receive data")
         return
       }
-      
+      //TODO: handle errors correctly
+      //TODO: remove this parsing code from the network layer
       do {
         guard let response = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: AnyObject] else {
           
