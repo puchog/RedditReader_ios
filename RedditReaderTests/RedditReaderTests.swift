@@ -3,7 +3,7 @@
 //  RedditReaderTests
 //
 //  Created by Juan Giannuzzo on 2/2/17.
-//  Copyright © 2017 Deviget. All rights reserved.
+//  Copyright © 2017 Puchog. All rights reserved.
 //
 
 import XCTest

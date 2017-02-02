@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E63651FF1E435EDE0027EFCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63651FE1E435EDE0027EFCC /* AppDelegate.swift */; };
-		E63652011E435EDE0027EFCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652001E435EDE0027EFCC /* ViewController.swift */; };
 		E63652041E435EDE0027EFCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63652021E435EDE0027EFCC /* Main.storyboard */; };
 		E63652061E435EDE0027EFCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63652051E435EDE0027EFCC /* Assets.xcassets */; };
 		E63652091E435EDE0027EFCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63652071E435EDE0027EFCC /* LaunchScreen.storyboard */; };
 		E63652141E435EDE0027EFCC /* RedditReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652131E435EDE0027EFCC /* RedditReaderTests.swift */; };
 		E636521F1E435EDE0027EFCC /* RedditReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636521E1E435EDE0027EFCC /* RedditReaderUITests.swift */; };
+		E63652301E4371820027EFCC /* RRArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636522F1E4371820027EFCC /* RRArticle.swift */; };
+		E63652311E4371820027EFCC /* RRArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636522F1E4371820027EFCC /* RRArticle.swift */; };
+		E63652321E4371820027EFCC /* RRArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636522F1E4371820027EFCC /* RRArticle.swift */; };
+		E63652351E4372190027EFCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652331E4372190027EFCC /* AppDelegate.swift */; };
+		E63652361E4372190027EFCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652331E4372190027EFCC /* AppDelegate.swift */; };
+		E63652371E4372190027EFCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652331E4372190027EFCC /* AppDelegate.swift */; };
+		E636523C1E43752B0027EFCC /* RRMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636523B1E43752B0027EFCC /* RRMainVM.swift */; };
+		E636523D1E43752B0027EFCC /* RRMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636523B1E43752B0027EFCC /* RRMainVM.swift */; };
+		E636523E1E43752B0027EFCC /* RRMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636523B1E43752B0027EFCC /* RRMainVM.swift */; };
+		E63652401E43753F0027EFCC /* RRMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636523F1E43753F0027EFCC /* RRMainVC.swift */; };
+		E63652411E43753F0027EFCC /* RRMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636523F1E43753F0027EFCC /* RRMainVC.swift */; };
+		E63652421E43753F0027EFCC /* RRMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E636523F1E43753F0027EFCC /* RRMainVC.swift */; };
+		E63652441E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652431E437C7E0027EFCC /* RRNetworkCalls.swift */; };
+		E63652451E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652431E437C7E0027EFCC /* RRNetworkCalls.swift */; };
+		E63652461E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652431E437C7E0027EFCC /* RRNetworkCalls.swift */; };
+		E63652491E43A6180027EFCC /* RRArticleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652481E43A6180027EFCC /* RRArticleTVC.swift */; };
+		E636524A1E43A6180027EFCC /* RRArticleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652481E43A6180027EFCC /* RRArticleTVC.swift */; };
+		E636524B1E43A6180027EFCC /* RRArticleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63652481E43A6180027EFCC /* RRArticleTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +51,6 @@
 
 /* Begin PBXFileReference section */
 		E63651FB1E435EDE0027EFCC /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E63651FE1E435EDE0027EFCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E63652001E435EDE0027EFCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E63652031E435EDE0027EFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E63652051E435EDE0027EFCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E63652081E435EDE0027EFCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +61,12 @@
 		E636521A1E435EDE0027EFCC /* RedditReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E636521E1E435EDE0027EFCC /* RedditReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditReaderUITests.swift; sourceTree = "<group>"; };
 		E63652201E435EDE0027EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E636522F1E4371820027EFCC /* RRArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRArticle.swift; sourceTree = "<group>"; };
+		E63652331E4372190027EFCC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E636523B1E43752B0027EFCC /* RRMainVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRMainVM.swift; sourceTree = "<group>"; };
+		E636523F1E43753F0027EFCC /* RRMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRMainVC.swift; sourceTree = "<group>"; };
+		E63652431E437C7E0027EFCC /* RRNetworkCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRNetworkCalls.swift; sourceTree = "<group>"; };
+		E63652481E43A6180027EFCC /* RRArticleTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRArticleTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +117,9 @@
 		E63651FD1E435EDE0027EFCC /* RedditReader */ = {
 			isa = PBXGroup;
 			children = (
-				E63651FE1E435EDE0027EFCC /* AppDelegate.swift */,
-				E63652001E435EDE0027EFCC /* ViewController.swift */,
+				E636522D1E436ECB0027EFCC /* Models */,
+				E636522E1E436ECB0027EFCC /* Network */,
+				E636522C1E436ECB0027EFCC /* Application */,
 				E63652021E435EDE0027EFCC /* Main.storyboard */,
 				E63652051E435EDE0027EFCC /* Assets.xcassets */,
 				E63652071E435EDE0027EFCC /* LaunchScreen.storyboard */,
@@ -123,6 +144,41 @@
 				E63652201E435EDE0027EFCC /* Info.plist */,
 			);
 			path = RedditReaderUITests;
+			sourceTree = "<group>";
+		};
+		E636522C1E436ECB0027EFCC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E63652471E43A5950027EFCC /* TableCells */,
+				E63652331E4372190027EFCC /* AppDelegate.swift */,
+				E636523B1E43752B0027EFCC /* RRMainVM.swift */,
+				E636523F1E43753F0027EFCC /* RRMainVC.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E636522D1E436ECB0027EFCC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E636522F1E4371820027EFCC /* RRArticle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E636522E1E436ECB0027EFCC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E63652431E437C7E0027EFCC /* RRNetworkCalls.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E63652471E43A5950027EFCC /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				E63652481E43A6180027EFCC /* RRArticleTVC.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +243,10 @@
 		E63651F31E435EDD0027EFCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RR;
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = Deviget;
+				ORGANIZATIONNAME = Puchog;
 				TargetAttributes = {
 					E63651FA1E435EDD0027EFCC = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -259,8 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63652011E435EDE0027EFCC /* ViewController.swift in Sources */,
-				E63651FF1E435EDE0027EFCC /* AppDelegate.swift in Sources */,
+				E636523C1E43752B0027EFCC /* RRMainVM.swift in Sources */,
+				E63652401E43753F0027EFCC /* RRMainVC.swift in Sources */,
+				E63652441E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */,
+				E63652351E4372190027EFCC /* AppDelegate.swift in Sources */,
+				E63652491E43A6180027EFCC /* RRArticleTVC.swift in Sources */,
+				E63652301E4371820027EFCC /* RRArticle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +329,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E63652361E4372190027EFCC /* AppDelegate.swift in Sources */,
+				E63652311E4371820027EFCC /* RRArticle.swift in Sources */,
+				E636523D1E43752B0027EFCC /* RRMainVM.swift in Sources */,
+				E63652411E43753F0027EFCC /* RRMainVC.swift in Sources */,
+				E636524A1E43A6180027EFCC /* RRArticleTVC.swift in Sources */,
+				E63652451E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */,
 				E63652141E435EDE0027EFCC /* RedditReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E63652371E4372190027EFCC /* AppDelegate.swift in Sources */,
+				E63652321E4371820027EFCC /* RRArticle.swift in Sources */,
+				E636523E1E43752B0027EFCC /* RRMainVM.swift in Sources */,
+				E63652421E43753F0027EFCC /* RRMainVC.swift in Sources */,
+				E636524B1E43A6180027EFCC /* RRArticleTVC.swift in Sources */,
+				E63652461E437C7E0027EFCC /* RRNetworkCalls.swift in Sources */,
 				E636521F1E435EDE0027EFCC /* RedditReaderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RedditReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deviget.RedditReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puchog.RedditReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -426,7 +499,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RedditReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deviget.RedditReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puchog.RedditReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -439,7 +512,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RedditReaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deviget.RedditReaderTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puchog.RedditReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RedditReader.app/RedditReader";
@@ -453,7 +526,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RedditReaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deviget.RedditReaderTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puchog.RedditReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RedditReader.app/RedditReader";
@@ -466,7 +539,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RedditReaderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deviget.RedditReaderUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puchog.RedditReaderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = RedditReader;
@@ -479,7 +552,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RedditReaderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.deviget.RedditReaderUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puchog.RedditReaderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = RedditReader;
