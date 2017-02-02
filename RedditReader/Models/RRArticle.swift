@@ -11,11 +11,16 @@ import UIKit
 class RRArticle: NSObject {
   var title:String?
   var author:String?
-  var created:Int?
+  var created:NSDate?
   var thumbnail:String?
   var numComments:Int?
   
   init(_ json:[String: AnyObject]) {
     title = json["title"] as? String
+    thumbnail = json["thumbnail"] as? String
+    let createdDouble = json["created"] as? Double
+    created =  NSDate(timeIntervalSince1970: createdDouble ?? 0.0 )
+    author = json["author"] as? String
+    numComments = json["num_comments"] as? Int
   }
 }

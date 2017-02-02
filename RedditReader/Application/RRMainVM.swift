@@ -26,4 +26,17 @@ class RRMainVM: NSObject {
     return articles[indexPath.row].title ?? ""
   }
   
+  func thumbnailUrlStringForRow(at indexPath:IndexPath) -> String {
+    return articles[indexPath.row].thumbnail ?? ""
+  }
+  
+  func infoStringForRow(at indexPath:IndexPath) -> String {
+    let timeString = articles[indexPath.row].created?.timeAgo() ?? ""
+    return "submitted \(timeString) by \(articles[indexPath.row].author ?? "unknown") "
+  }
+  
+  func bottomInfoStringForRow(at indexPath:IndexPath) -> String {
+    return "\(articles[indexPath.row].numComments ?? 0) comments"
+  }
+  
 }
