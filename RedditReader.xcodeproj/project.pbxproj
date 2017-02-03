@@ -48,6 +48,12 @@
 		E69DA6CD1E44C30D00EEB11C /* NSString+RRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6CC1E44C30D00EEB11C /* NSString+RRAdditions.swift */; };
 		E69DA6CE1E44C30D00EEB11C /* NSString+RRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6CC1E44C30D00EEB11C /* NSString+RRAdditions.swift */; };
 		E69DA6CF1E44C30D00EEB11C /* NSString+RRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6CC1E44C30D00EEB11C /* NSString+RRAdditions.swift */; };
+		E69DA6D51E44CE7000EEB11C /* RRLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6D41E44CE7000EEB11C /* RRLinkVC.swift */; };
+		E69DA6D61E44CE7000EEB11C /* RRLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6D41E44CE7000EEB11C /* RRLinkVC.swift */; };
+		E69DA6D71E44CE7000EEB11C /* RRLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6D41E44CE7000EEB11C /* RRLinkVC.swift */; };
+		E69DA6D91E44FCA700EEB11C /* RRArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6D81E44FCA700EEB11C /* RRArticleVM.swift */; };
+		E69DA6DA1E44FCA700EEB11C /* RRArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6D81E44FCA700EEB11C /* RRArticleVM.swift */; };
+		E69DA6DB1E44FCA700EEB11C /* RRArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DA6D81E44FCA700EEB11C /* RRArticleVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +97,8 @@
 		E69DA6C41E44AE6D00EEB11C /* RRImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRImageVC.swift; sourceTree = "<group>"; };
 		E69DA6C81E44B0A500EEB11C /* UIButton+RRAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+RRAdditions.swift"; sourceTree = "<group>"; };
 		E69DA6CC1E44C30D00EEB11C /* NSString+RRAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+RRAdditions.swift"; sourceTree = "<group>"; };
+		E69DA6D41E44CE7000EEB11C /* RRLinkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRLinkVC.swift; sourceTree = "<group>"; };
+		E69DA6D81E44FCA700EEB11C /* RRArticleVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRArticleVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +186,9 @@
 				E63652331E4372190027EFCC /* AppDelegate.swift */,
 				E636523B1E43752B0027EFCC /* RRMainVM.swift */,
 				E636523F1E43753F0027EFCC /* RRMainVC.swift */,
+				E69DA6D81E44FCA700EEB11C /* RRArticleVM.swift */,
 				E69DA6C41E44AE6D00EEB11C /* RRImageVC.swift */,
+				E69DA6D41E44CE7000EEB11C /* RRLinkVC.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -355,7 +365,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63652521E43CA280027EFCC /* NSDate+RRAdditions.swift in Sources */,
+				E69DA6D51E44CE7000EEB11C /* RRLinkVC.swift in Sources */,
 				E63652561E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */,
+				E69DA6D91E44FCA700EEB11C /* RRArticleVM.swift in Sources */,
 				E69DA6C51E44AE6D00EEB11C /* RRImageVC.swift in Sources */,
 				E636523C1E43752B0027EFCC /* RRMainVM.swift in Sources */,
 				E63652401E43753F0027EFCC /* RRMainVC.swift in Sources */,
@@ -375,10 +387,12 @@
 			files = (
 				E63652361E4372190027EFCC /* AppDelegate.swift in Sources */,
 				E69DA6CA1E44B0A500EEB11C /* UIButton+RRAdditions.swift in Sources */,
+				E69DA6DA1E44FCA700EEB11C /* RRArticleVM.swift in Sources */,
 				E69DA6C61E44AE6D00EEB11C /* RRImageVC.swift in Sources */,
 				E63652311E4371820027EFCC /* RRArticle.swift in Sources */,
 				E69DA6CE1E44C30D00EEB11C /* NSString+RRAdditions.swift in Sources */,
 				E63652571E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */,
+				E69DA6D61E44CE7000EEB11C /* RRLinkVC.swift in Sources */,
 				E636523D1E43752B0027EFCC /* RRMainVM.swift in Sources */,
 				E63652411E43753F0027EFCC /* RRMainVC.swift in Sources */,
 				E636524A1E43A6180027EFCC /* RRArticleTVC.swift in Sources */,
@@ -395,10 +409,12 @@
 			files = (
 				E63652371E4372190027EFCC /* AppDelegate.swift in Sources */,
 				E69DA6CB1E44B0A500EEB11C /* UIButton+RRAdditions.swift in Sources */,
+				E69DA6DB1E44FCA700EEB11C /* RRArticleVM.swift in Sources */,
 				E69DA6C71E44AE6D00EEB11C /* RRImageVC.swift in Sources */,
 				E63652321E4371820027EFCC /* RRArticle.swift in Sources */,
 				E69DA6CF1E44C30D00EEB11C /* NSString+RRAdditions.swift in Sources */,
 				E63652581E43E17C0027EFCC /* RRLoadingTVC.swift in Sources */,
+				E69DA6D71E44CE7000EEB11C /* RRLinkVC.swift in Sources */,
 				E636523E1E43752B0027EFCC /* RRMainVM.swift in Sources */,
 				E63652421E43753F0027EFCC /* RRMainVC.swift in Sources */,
 				E636524B1E43A6180027EFCC /* RRArticleTVC.swift in Sources */,

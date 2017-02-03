@@ -57,26 +57,43 @@ class RRMainVC: UIViewController {
       DispatchQueue.main.async{
         self.tableView.reloadData()
       }
-//      tableView.reloadData()
+      //      tableView.reloadData()
     }
   }
   
   
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  // MARK: - Navigation
+  
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    if segue.identifier == "CellPressed",
+      let indexPath = tableView.indexPathForSelectedRow
+    {
+      let vc = segue.destination as! RRLinkVC
+      vc.viewModel = self.viewModel.articleVMForCell(at: indexPath)
+    }
     
     if segue.identifier == "ImagePressed",
       let button = sender as? UIButton,
       let cell = button.superview?.superview as? UITableViewCell,
-      let indexPath = self.tableView.indexPath(for: cell),
-      !self.viewModel.imageUrlForRow(at: indexPath).isEmpty{
-      let controller = segue.destination as! RRImageVC
-      controller.imageUrl = self.viewModel.imageUrlForRow(at: indexPath)
-      controller.domain = self.viewModel.domainForRow(at: indexPath)
+      let indexPath = self.tableView.indexPath(for: cell) {
+      let vc = segue.destination as! RRImageVC
+      vc.viewModel = self.viewModel.articleVMForCell(at: indexPath)
     }
-   }
+  }
+  
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool{
+    if identifier == "ImagePressed",
+      let button = sender as? UIButton,
+      let cell = button.superview?.superview as? UITableViewCell,
+      let indexPath = self.tableView.indexPath(for: cell),
+      self.viewModel.articleVMForCell(at: indexPath).numberOfImages() <= 0{      
+      return false
+    }
+    
+    return true
+  }
 }
 
 extension RRMainVC: UITableViewDataSource, UITableViewDelegate {
@@ -107,7 +124,8 @@ extension RRMainVC: UITableViewDataSource, UITableViewDelegate {
       let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? RRArticleTVC
         ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier) as! RRArticleTVC
       
-      cell.setup(with: viewModel, indexPath: indexPath)
+      cell.viewModel = viewModel.articleVMForCell(at: indexPath)
+      cell.setup()
       return cell
     }
   }

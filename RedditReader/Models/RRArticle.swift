@@ -20,10 +20,14 @@ class RRArticle: NSObject {
   var subreddit:String?
   var url:String?
   
+  var images:[String]=[]
+  
   init(_ json:[String: AnyObject]) {
     title = json["title"] as? String
     thumbnail = json["thumbnail"] as? String
+    
     let createdDouble = json["created"] as? Double
+    
     created =  NSDate(timeIntervalSince1970: createdDouble ?? 0.0 )
     author = json["author"] as? String
     numComments = json["num_comments"] as? Int
@@ -31,5 +35,16 @@ class RRArticle: NSObject {
     domain = json["domain"] as? String
     subreddit = json["subreddit"] as? String
     url = json["url"] as? String
+    
+    if let preview = json["preview"] as? [String: AnyObject],
+      let images = preview["images"] as? [AnyObject] {
+      self.images = []
+      for case let image as [String:AnyObject]  in images{
+        if let source = image["source"] as? [String: AnyObject] {
+          self.images.append(source["url"] as! String)
+        }
+      }
+    }
+    
   }
 }

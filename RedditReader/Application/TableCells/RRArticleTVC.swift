@@ -10,7 +10,8 @@ import UIKit
 
 class RRArticleTVC: UITableViewCell {
   
-
+  var viewModel:RRArticleVM?
+  
   @IBOutlet weak var imageBtn: UIButton!
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var infoLbl: UILabel!
@@ -26,11 +27,15 @@ class RRArticleTVC: UITableViewCell {
    
   }
   
-  func setup(with viewModel:RRMainVM, indexPath:IndexPath){
-    self.titleLbl.text = viewModel.titleForRow(at: indexPath)    
-    self.imageBtn.imageFromServerURL(urlString: viewModel.thumbnailUrlStringForRow(at: indexPath))
-    self.infoLbl.text = viewModel.infoStringForRow(at: indexPath)
-    self.bottomInfoLbl.text = viewModel.bottomInfoStringForRow(at: indexPath)
+  func setup(){
+    guard let viewModel = self.viewModel else {
+      print("Missing Article ViewModel")
+      return
+    }
+    self.titleLbl.text = viewModel.title()
+    self.imageBtn.imageFromServerURL(urlString: viewModel.thumbnailUrlString())
+    self.infoLbl.text = viewModel.infoString()
+    self.bottomInfoLbl.text = viewModel.bottomInfoString()
   }
   
 }

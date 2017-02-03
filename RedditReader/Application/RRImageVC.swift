@@ -7,45 +7,51 @@
 //
 
 import UIKit
-import WebKit
 
-class RRImageVC: UIViewController, WKNavigationDelegate {
+class RRImageVC: UIViewController {
   
-  var webView: WKWebView!
-  var imageUrl:String?
-  var domain:String?
+  var viewModel:RRArticleVM?
   
-  override func loadView() {
-    webView = WKWebView()
-    webView.navigationDelegate = self
-    view = webView
-  }
+  @IBOutlet weak var imageView: UIImageView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    webView.navigationDelegate = self
-    view = webView
-    
-    if let iurl = imageUrl, let url = URL(string: iurl) {     
-      webView.load(URLRequest(url: url))
-      webView.allowsBackForwardNavigationGestures = true
+    guard let viewModel = self.viewModel else{
+      print("Missing ArticleVM" )
+      return
     }
+    imageView.imageFromServerURL(urlString: viewModel.imageUrl(at: 0))
   }
   
   override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    super.didReceiveMemoryWarning()    
   }
   
+  @IBAction func closeBtnPressed(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  @IBAction func saveBtnPressed(_ sender: Any) {
+    
+    guard let image = imageView.image else {
+      let ac = UIAlertController(title: "Save error", message: "Nothing to Save", preferredStyle: .alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .default))
+      present(ac, animated: true)
+      return
+    }
+    UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+  }
   
+  func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    if let error = error {
+      // we got back an error!
+      let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .default))
+      present(ac, animated: true)
+    } else {
+      let ac = UIAlertController(title: "Saved!", message: "Your image has been saved to your photos.", preferredStyle: .alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .default))
+      present(ac, animated: true)
+    }
+  }
 }

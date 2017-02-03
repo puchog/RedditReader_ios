@@ -35,30 +35,11 @@ class RRMainVM: NSObject {
     }
   }
   
-  func titleForRow(at indexPath:IndexPath) -> String {
-    return articles[indexPath.row].title ?? ""
-  }
   
-  func thumbnailUrlStringForRow(at indexPath:IndexPath) -> String {
-    return articles[indexPath.row].thumbnail ?? ""
-  }
   
-  func infoStringForRow(at indexPath:IndexPath) -> String {
-    let timeString = articles[indexPath.row].created?.timeAgo() ?? ""
-    return "submitted \(timeString) by \(articles[indexPath.row].author ?? "unknown") "
-  }
-  
-  func bottomInfoStringForRow(at indexPath:IndexPath) -> String {
-    return "\(articles[indexPath.row].numComments ?? 0) comments, posted on \(articles[indexPath.row].subreddit ?? "unknown") "
-  }
-  
-  func imageUrlForRow(at indexPath:IndexPath) -> String{
-    let url = articles[indexPath.row].url ?? ""
-    return try! url.convertHtmlSymbols() ?? ""
-  }
-  
-  func domainForRow(at indexPath:IndexPath) -> String{
-    return articles[indexPath.row].domain ?? ""
+  func articleVMForCell(at indexPath:IndexPath) -> RRArticleVM {
+    let vm = RRArticleVM(article: articles[indexPath.row])    
+    return vm
   }
   
 }

@@ -81,7 +81,7 @@
                                                     </constraints>
                                                     <state key="normal" backgroundImage="missing_image.png"/>
                                                     <connections>
-                                                        <segue destination="xjm-45-bmy" kind="show" identifier="ImagePressed" id="GDZ-L2-zut"/>
+                                                        <segue destination="xjm-45-bmy" kind="presentation" identifier="ImagePressed" modalPresentationStyle="overCurrentContext" id="GDZ-L2-zut"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -106,6 +106,7 @@
                                             <outlet property="imageBtn" destination="U91-nT-RmL" id="YqQ-q2-oR9"/>
                                             <outlet property="infoLbl" destination="uOv-so-JJO" id="GeF-aQ-bZj"/>
                                             <outlet property="titleLbl" destination="Pfu-Ru-WJy" id="JF4-4t-qzh"/>
+                                            <segue destination="Pm2-S1-jTS" kind="show" identifier="CellPressed" id="Sm8-GO-CKU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="vqg-L7-WVa" customClass="RRLoadingTVC" customModule="RedditReader" customModuleProvider="target">
@@ -163,12 +164,62 @@
                     <view key="view" contentMode="scaleToFill" id="Lrd-98-8PY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBU-sG-Thy">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-wP-0E9">
+                                <rect key="frame" x="320" y="28" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeBtnPressed:" destination="xjm-45-bmy" eventType="touchUpInside" id="oVo-xX-X69"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-Hf-rq6">
+                                <rect key="frame" x="16" y="28" width="46" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="xjm-45-bmy" eventType="touchUpInside" id="cxa-0w-Bmx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33074421965317918" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6XH-wP-0E9" firstAttribute="trailing" secondItem="Lrd-98-8PY" secondAttribute="trailingMargin" id="J5e-Cb-B4A"/>
+                            <constraint firstItem="eOa-Hf-rq6" firstAttribute="top" secondItem="CH2-Dj-nqt" secondAttribute="bottom" constant="8" id="Mq7-hW-ovO"/>
+                            <constraint firstAttribute="trailing" secondItem="kBU-sG-Thy" secondAttribute="trailing" id="NaJ-lV-lIG"/>
+                            <constraint firstItem="eOa-Hf-rq6" firstAttribute="leading" secondItem="Lrd-98-8PY" secondAttribute="leadingMargin" id="Py9-bh-TA2"/>
+                            <constraint firstItem="6XH-wP-0E9" firstAttribute="top" secondItem="CH2-Dj-nqt" secondAttribute="bottom" constant="8" id="cpN-LP-HoR"/>
+                            <constraint firstItem="mJ2-87-Cp9" firstAttribute="top" secondItem="kBU-sG-Thy" secondAttribute="bottom" id="lUT-QI-bm9"/>
+                            <constraint firstItem="kBU-sG-Thy" firstAttribute="leading" secondItem="Lrd-98-8PY" secondAttribute="leading" id="mj4-cs-ldZ"/>
+                            <constraint firstItem="kBU-sG-Thy" firstAttribute="top" secondItem="CH2-Dj-nqt" secondAttribute="bottom" id="yAs-bE-SUO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="kBU-sG-Thy" id="LKO-Xr-yXN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bq-HM-2K7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="79"/>
+            <point key="canvasLocation" x="1172" y="-169.56521739130437"/>
+        </scene>
+        <!--LinkVC-->
+        <scene sceneID="0hA-xX-uKh">
+            <objects>
+                <viewController id="Pm2-S1-jTS" customClass="RRLinkVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ryz-Pg-5WX"/>
+                        <viewControllerLayoutGuide type="bottom" id="4mv-gV-SOm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LzI-J8-coC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKD-Br-KD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="504"/>
         </scene>
     </scenes>
     <resources>
