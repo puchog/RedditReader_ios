@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton {
   public func imageFromServerURL(urlString: String) {
-    self.setBackgroundImage( UIImage(named: "missing_image"), for: .normal)
+    self.setImage( UIImage(named: "missing_image"), for: .normal)
     URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
       
       if error != nil {
@@ -18,7 +18,7 @@ extension UIButton {
       }
       DispatchQueue.main.async(execute: { () -> Void in
         let image = UIImage(data: data!)
-        self.setBackgroundImage(image, for: .normal)
+        self.setImage(image, for: .normal)
       })
       
     }).resume()

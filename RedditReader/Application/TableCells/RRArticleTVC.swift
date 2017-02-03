@@ -18,7 +18,7 @@ class RRArticleTVC: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    imageBtn.imageView?.contentMode = UIViewContentMode.scaleAspectFill
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
