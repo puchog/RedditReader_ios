@@ -49,7 +49,16 @@ class RRMainVM: NSObject {
   }
   
   func bottomInfoStringForRow(at indexPath:IndexPath) -> String {
-    return "\(articles[indexPath.row].numComments ?? 0) comments"
+    return "\(articles[indexPath.row].numComments ?? 0) comments, posted on \(articles[indexPath.row].subreddit ?? "unknown") "
+  }
+  
+  func imageUrlForRow(at indexPath:IndexPath) -> String{
+    let url = articles[indexPath.row].url ?? ""
+    return try! url.convertHtmlSymbols() ?? ""
+  }
+  
+  func domainForRow(at indexPath:IndexPath) -> String{
+    return articles[indexPath.row].domain ?? ""
   }
   
 }

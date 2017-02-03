@@ -61,16 +61,22 @@ class RRMainVC: UIViewController {
     }
   }
   
-  /*
+  
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
+    
+    if segue.identifier == "ImagePressed",
+      let button = sender as? UIButton,
+      let cell = button.superview?.superview as? UITableViewCell,
+      let indexPath = self.tableView.indexPath(for: cell),
+      !self.viewModel.imageUrlForRow(at: indexPath).isEmpty{
+      let controller = segue.destination as! RRImageVC
+      controller.imageUrl = self.viewModel.imageUrlForRow(at: indexPath)
+      controller.domain = self.viewModel.domainForRow(at: indexPath)
+    }
    }
-   */
-  
 }
 
 extension RRMainVC: UITableViewDataSource, UITableViewDelegate {

@@ -16,6 +16,9 @@ class RRArticle: NSObject {
   var created:NSDate?
   var thumbnail:String?
   var numComments:Int?
+  var domain:String?
+  var subreddit:String?
+  var url:String?
   
   init(_ json:[String: AnyObject]) {
     title = json["title"] as? String
@@ -25,5 +28,8 @@ class RRArticle: NSObject {
     author = json["author"] as? String
     numComments = json["num_comments"] as? Int
     name = json["name"] as? String
+    domain = json["domain"] as? String
+    subreddit = json["subreddit"] as? String
+    url = json["url"] as? String
   }
 }
