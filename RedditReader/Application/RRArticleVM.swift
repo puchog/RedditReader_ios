@@ -8,9 +8,22 @@
 
 import UIKit
 
-class RRArticleVM: NSObject {
-  
+class RRArticleVM: NSObject,NSCoding {
   let article: RRArticle
+  
+  // MARK: - NSCoding
+  
+  required convenience init?(coder decoder: NSCoder) {
+    guard let article = decoder.decodeObject(forKey: "article") as? RRArticle
+      else { return nil }
+    self.init(article: article)
+  }
+  
+  func encode(with aCoder: NSCoder){
+    aCoder.encode(article, forKey: "article")
+  }
+  
+  // MARK: - ViewModel
   
   init(article: RRArticle) {
     self.article = article

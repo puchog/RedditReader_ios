@@ -8,11 +8,28 @@
 
 import UIKit
 
-class RRMainVM: NSObject {
+class RRMainVM: NSObject, NSCoding {
   
   private let network = RRNetworkCalls.sharedInstance
-  
   dynamic var articles:[RRArticle] = []
+  
+  // MARK: - NSCoding
+  
+  required convenience init?(coder decoder: NSCoder) {
+    guard let articles = decoder.decodeObject(forKey: "articles") as? [RRArticle]
+      else { return nil }
+    self.init(articles: articles)
+  }
+  
+  func encode(with aCoder: NSCoder){
+    aCoder.encode(articles, forKey: "articles")
+  }
+  
+  // MARK: - ViewModel
+  
+  init(articles: [RRArticle]){
+    self.articles = articles
+  }
   
   func refreshData(){
     network.retrieveArticles(){ (articles, error) in
@@ -34,8 +51,6 @@ class RRMainVM: NSObject {
       }
     }
   }
-  
-  
   
   func articleVMForCell(at indexPath:IndexPath) -> RRArticleVM {
     let vm = RRArticleVM(article: articles[indexPath.row])    

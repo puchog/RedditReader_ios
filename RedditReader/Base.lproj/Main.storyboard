@@ -14,7 +14,7 @@
         <!--Navigation Controller-->
         <scene sceneID="up7-jZ-0lF">
             <objects>
-                <navigationController id="Uqu-yH-drW" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="com.puchog.mainnavigationcontroller" id="Uqu-yH-drW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dR5-UZ-I9H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -30,7 +30,7 @@
         <!--Reddit Reader-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Reddit Reader" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="RRMainVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="com.puchog.RRMainVC" title="Reddit Reader" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="RRMainVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -156,7 +156,7 @@
         <!--ImageVC-->
         <scene sceneID="t5U-QG-Za9">
             <objects>
-                <viewController id="xjm-45-bmy" customClass="RRImageVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="com.pucho.RRImageVC" id="xjm-45-bmy" customClass="RRImageVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CH2-Dj-nqt"/>
                         <viewControllerLayoutGuide type="bottom" id="mJ2-87-Cp9"/>
@@ -175,8 +175,8 @@
                                     <action selector="closeBtnPressed:" destination="xjm-45-bmy" eventType="touchUpInside" id="oVo-xX-X69"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-Hf-rq6">
-                                <rect key="frame" x="16" y="28" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-Hf-rq6">
+                                <rect key="frame" x="16" y="28" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveBtnPressed:" destination="xjm-45-bmy" eventType="touchUpInside" id="cxa-0w-Bmx"/>
@@ -206,7 +206,7 @@
         <!--LinkVC-->
         <scene sceneID="0hA-xX-uKh">
             <objects>
-                <viewController id="Pm2-S1-jTS" customClass="RRLinkVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="com.puchog.RRLinkVC" id="Pm2-S1-jTS" customClass="RRLinkVC" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ryz-Pg-5WX"/>
                         <viewControllerLayoutGuide type="bottom" id="4mv-gV-SOm"/>

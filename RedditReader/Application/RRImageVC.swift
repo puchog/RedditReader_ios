@@ -44,7 +44,6 @@ class RRImageVC: UIViewController {
   
   func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
     if let error = error {
-      // we got back an error!
       let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
       ac.addAction(UIAlertAction(title: "OK", style: .default))
       present(ac, animated: true)
@@ -52,6 +51,20 @@ class RRImageVC: UIViewController {
       let ac = UIAlertController(title: "Saved!", message: "Your image has been saved to your photos.", preferredStyle: .alert)
       ac.addAction(UIAlertAction(title: "OK", style: .default))
       present(ac, animated: true)
+    }
+  }
+  
+  // MARK: - Restoration
+  
+  override func encodeRestorableState(with coder: NSCoder) {
+    super.encodeRestorableState(with: coder)
+    coder.encode(viewModel,forKey:"viewModel")
+  }
+  
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+    if let vm = coder.decodeObject(forKey: "viewModel") as? RRArticleVM {
+      self.viewModel = vm
     }
   }
 }

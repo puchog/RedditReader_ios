@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RRArticle: NSObject {
+class RRArticle: NSObject,NSCoding {
   
   var name:String?
   var title:String?
@@ -21,6 +21,10 @@ class RRArticle: NSObject {
   var url:String?
   
   var images:[String]=[]
+  
+  override init() {
+    super.init()
+  }
   
   init(_ json:[String: AnyObject]) {
     title = json["title"] as? String
@@ -47,4 +51,32 @@ class RRArticle: NSObject {
     }
     
   }
+  
+  // MARK: - NSCoding
+  
+  required convenience init(coder decoder: NSCoder) {
+    self.init()
+    name = decoder.decodeObject(forKey: "name") as? String
+    title = decoder.decodeObject(forKey: "title") as? String
+    author = decoder.decodeObject(forKey: "author") as? String
+    created = decoder.decodeObject(forKey: "created") as? NSDate
+    thumbnail = decoder.decodeObject(forKey: "thumbnail") as? String
+    numComments = decoder.decodeObject(forKey: "numComments") as? Int
+    domain = decoder.decodeObject(forKey: "domain") as? String
+    subreddit = decoder.decodeObject(forKey: "subreddit") as? String
+    url = decoder.decodeObject(forKey: "url") as? String
+  }
+  
+  func encode(with aCoder: NSCoder){
+    aCoder.encode(name, forKey: "name")
+    aCoder.encode(title, forKey: "title")
+    aCoder.encode(author, forKey: "author")
+    aCoder.encode(created, forKey: "created")
+    aCoder.encode(thumbnail, forKey: "thumbnail")
+    aCoder.encode(numComments, forKey: "numComments")
+    aCoder.encode(domain, forKey: "domain")
+    aCoder.encode(subreddit, forKey: "subreddit")
+    aCoder.encode(url, forKey: "url")
+  }
+
 }

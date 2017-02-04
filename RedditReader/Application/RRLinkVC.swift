@@ -40,4 +40,18 @@ class RRLinkVC: UIViewController , WKNavigationDelegate {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
+  
+  // MARK: - Restoration
+  
+  override func encodeRestorableState(with coder: NSCoder) {
+    super.encodeRestorableState(with: coder)
+    coder.encode(viewModel,forKey:"viewModel")
+  }
+  
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+    if let vm = coder.decodeObject(forKey: "viewModel") as? RRArticleVM {
+      self.viewModel = vm
+    }
+  }
 }

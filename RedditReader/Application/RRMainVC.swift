@@ -9,7 +9,7 @@
 import UIKit
 
 class RRMainVC: UIViewController {
-  let viewModel:RRMainVM = RRMainVM()
+  var viewModel:RRMainVM = RRMainVM(articles: [])
   
   @IBOutlet weak var tableView: UITableView!
   var refreshControl: UIRefreshControl!
@@ -36,6 +36,7 @@ class RRMainVC: UIViewController {
     refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
     refreshControl.addTarget(self, action: #selector(refreshData), for: UIControlEvents.valueChanged)
     tableView.addSubview(refreshControl) // not required when using UITableViewController
+    refreshControl.endRefreshing()
   }
   
   private func setupObservers(){
@@ -45,8 +46,6 @@ class RRMainVC: UIViewController {
   func refreshData() {
     viewModel.refreshData()
   }
-  
-  
   
   // MARK: - Key-Value Observing
   
@@ -94,6 +93,32 @@ class RRMainVC: UIViewController {
     
     return true
   }
+  
+  // MARK: - Restoration
+  
+  override func encodeRestorableState(with coder: NSCoder) {
+    super.encodeRestorableState(with: coder)
+    coder.encode(viewModel,forKey:"viewModel")
+    coder.encode(tableView.indexPathsForVisibleRows?[0],forKey:"indexPath")
+  }
+  
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+    if let vm = coder.decodeObject(forKey: "viewModel") as? RRMainVM {
+      removeObserver(self, forKeyPath: #keyPath(viewModel.articles))
+      self.viewModel = vm
+      setupViews()
+      setupObservers()
+      DispatchQueue.main.async{
+        self.tableView.reloadData()
+      }
+      if let indexPath = coder.decodeObject(forKey: "indexPath") as? IndexPath {
+        DispatchQueue.main.async{
+          self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+        }
+      }
+    }
+  }  
 }
 
 extension RRMainVC: UITableViewDataSource, UITableViewDelegate {
