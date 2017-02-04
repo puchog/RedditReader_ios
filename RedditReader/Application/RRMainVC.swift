@@ -28,7 +28,7 @@ class RRMainVC: UIViewController {
   }
   
   deinit {
-    removeObserver(self, forKeyPath: #keyPath(viewModel.articles))
+    removeObservers()
   }
   
   private func setupViews(){
@@ -41,6 +41,12 @@ class RRMainVC: UIViewController {
   
   private func setupObservers(){
     addObserver(self, forKeyPath: #keyPath(viewModel.articles), options: [.old, .new], context: nil)
+    addObserver(self, forKeyPath: #keyPath(viewModel.currentError), options: [.old, .new], context: nil)
+  }
+  
+  private func removeObservers(){
+    removeObserver(self, forKeyPath: #keyPath(viewModel.articles))
+    removeObserver(self, forKeyPath: #keyPath(viewModel.currentError))
   }
   
   func refreshData() {
@@ -51,19 +57,22 @@ class RRMainVC: UIViewController {
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     if keyPath == #keyPath(viewModel.articles) {
-      // Reload TableView Data
       refreshControl.endRefreshing()
       DispatchQueue.main.async{
         self.tableView.reloadData()
       }
-      //      tableView.reloadData()
+    }
+    
+    if keyPath == #keyPath(viewModel.currentError) {
+      let ac = UIAlertController(title: "Error", message: viewModel.currentError, preferredStyle: .alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .default))
+      present(ac, animated: true)
     }
   }
   
   
   // MARK: - Navigation
   
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     if segue.identifier == "CellPressed",
@@ -105,7 +114,7 @@ class RRMainVC: UIViewController {
   override func decodeRestorableState(with coder: NSCoder) {
     super.decodeRestorableState(with: coder)
     if let vm = coder.decodeObject(forKey: "viewModel") as? RRMainVM {
-      removeObserver(self, forKeyPath: #keyPath(viewModel.articles))
+      removeObservers()
       self.viewModel = vm
       setupViews()
       setupObservers()

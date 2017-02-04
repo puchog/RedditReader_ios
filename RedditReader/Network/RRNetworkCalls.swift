@@ -8,6 +8,20 @@
 
 import UIKit
 
+public enum RRError: Error {
+  case invalidResponse
+}
+
+extension RRError: LocalizedError {
+  public var errorDescription: String? {
+    switch self {
+    case .invalidResponse:
+      return NSLocalizedString("Invalid Response from the server", comment: "invalidResponse")
+    }
+  }
+}
+
+
 class RRNetworkCalls: NSObject {
   
   let baseUrl = "https://www.reddit.com"
@@ -17,7 +31,7 @@ class RRNetworkCalls: NSObject {
     return instance
   }()
   
-  func retrieveArticles(before:String? = nil, after:String? = nil, count:Int = 20, completion: @escaping ([RRArticle]?, NSError?)-> Swift.Void) {
+  func retrieveArticles(before:String? = nil, after:String? = nil, count:Int = 20, completion: @escaping ([RRArticle]?, Error?)-> Swift.Void) {
     
     var topEndpoint: String = "\(baseUrl)/top.json?count=\(count)"
     if let b = before {
@@ -38,12 +52,12 @@ class RRNetworkCalls: NSObject {
     
     let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in      
       guard error == nil else {
-        print(error)
+        completion(nil,error )
         return
       }
       
       guard let responseData = data else {
-        print("Error: did not receive data")
+        completion(nil,RRError.invalidResponse )
         return
       }
       //TODO: handle errors correctly
@@ -51,12 +65,12 @@ class RRNetworkCalls: NSObject {
       do {
         guard let response = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: AnyObject] else {
           
-          print("error trying to convert data to JSON")
+          completion(nil,RRError.invalidResponse )
           return
         }
         guard let articles = response["data"]?["children"] as? [AnyObject] else {
           
-          print("error retrieving data from response")
+          completion(nil,RRError.invalidResponse )
           return
         }
         var arts = [RRArticle]()
@@ -65,10 +79,9 @@ class RRNetworkCalls: NSObject {
         }
         completion(arts, nil)        
       } catch  {
-        print("error trying to convert data to JSON")
+        completion(nil,RRError.invalidResponse )
         return
       }
-      
     })
     task.resume()
   }

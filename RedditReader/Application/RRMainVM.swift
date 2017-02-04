@@ -12,6 +12,7 @@ class RRMainVM: NSObject, NSCoding {
   
   private let network = RRNetworkCalls.sharedInstance
   dynamic var articles:[RRArticle] = []
+  dynamic var currentError:String = ""
   
   // MARK: - NSCoding
   
@@ -33,6 +34,10 @@ class RRMainVM: NSObject, NSCoding {
   
   func refreshData(){
     network.retrieveArticles(){ (articles, error) in
+      if let e = error{
+        self.currentError = e.localizedDescription
+        return
+      }
       if let art = articles {
         self.articles = art
       }
@@ -46,6 +51,10 @@ class RRMainVM: NSObject, NSCoding {
     }
     let after = articles.last?.name ?? ""
     network.retrieveArticles(after:after){ (articles, error) in
+      if let e = error{
+        self.currentError = e.localizedDescription
+        return
+      }
       if let art = articles {
         self.articles += art
       }
